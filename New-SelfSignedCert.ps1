@@ -1,9 +1,9 @@
 <#
 Generate Self-signed certificate
 
-Download script from: 
+Download script from:
 https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6
- 
+
 #>
 
 #load function
@@ -17,7 +17,7 @@ New-SelfSignedCertificateEx -Subject 'CN=Cert' -EnhancedKeyUsage 'Document Encry
 
 # Check Cert
 $cert = Get-ChildItem Cert:\LocalMachine\My | Where-Object {$_.FriendlyName -eq 'SelfSigned'}
-$cert 
+$cert
 
 # Cert can be exported
 Export-Certificate -Cert $cert -FilePath C:\VMwareDSC\Cert.cer -Force
